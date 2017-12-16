@@ -1,0 +1,7 @@
+Format des données :
+
+			The format of these data files is:
+			number of items (n)
+			capacity W
+			profit p for each item
+			weight w for each item

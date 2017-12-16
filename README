@@ -1,0 +1,41 @@
+
+
+
+			Dispositions des documents :
+			  *Dossiers
+				data/ :  contient quelques instances du problème
+        src/  :  contient le code source des algorithmes
+        *Fichiers
+          			Format-Instance : décrit le format des instances
+          			graphique       : graphique comparant les temps d'exécutions des deux algorithmes (GLPK+JUMP et celui implemené)
+          			README          : Ce fichier
+          			TempsInstance   : Rélévé des temps d'exécutions des deux algorithmes
+
+          ######################
+            Comparaison
+          #####################
+					sur nos intances testées :
+            On observe que les algorithmes de branch and bound UKP implémentés sont meilleures que GLPK+JUMP.
+						Celle avec la borne B1 présentée au cours affiche une bonne performance au profit de l'algorithme de branch and bound
+						utilisant la borne B2 (Martello et Toth). En effet on effectue plus de temps à calculer la borne B2 que la borne B1(relaxation)
+						et étant donnée que la différence entre les deux ne soit pas enorme sur nos instance, B1 l'emporte.
+						On se doute pas que sur une instance plus compliquée B2 l'emportera en notion de temps, B2 est toujours plus petite que B1.
+						Mais malheuresement sur nos instances, l'implementation de B2 n'a pas apporté grand chose.
+
+            Remarque : L'analyse a été faite sur un programme deja compilé pour une bonne rapidité
+
+						################
+							Exécution
+						################
+						Se potionner dans le dossier src/
+						Lancer include("main.jl")
+						puis  											ukp(typeResolution,instance)		****************************
+						Où typeResolution : est l'algorithme choisit, ces valeurs possibles sont
+								1) UKP				:	algorithme branch and bound implémenté avec la borne B1
+								2) UKPB				: algorithme branch and bound implémenté avec la borne B2
+								2) GLPK-JUMP	:	utilisation du solver GLPK
+						Et instance : nom d'instance
+
+						###################
+								EXEMPLE : ukp("UKPB","../data/kp10a.dat")
+						###################
